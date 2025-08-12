@@ -5,6 +5,11 @@
 </template>
 <script>
 export default {
-  name: 'HomePage'
+  name: 'HomePage',
+  computed: {
+    products() {
+      return this.$store.state.products;
+    }
+  }
 }
 </script>

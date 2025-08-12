@@ -5,6 +5,15 @@
   </nav>
   <router-view/>
 </template>
+<script>
+import axios from 'axios';
+
+export default {
+  created() {
+    this.$store.dispatch('loadProducts');
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
