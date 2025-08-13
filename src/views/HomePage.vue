@@ -4,6 +4,7 @@
       <div
         v-for="(product, index) in this.products" :key="index"
         class="product"
+        :class="{ inBag: isInBag(product) }"
       >
         <div class="product-image" :style="{ backgroundImage: 'url(' + product.image + ')' }">
         </div>
@@ -16,7 +17,9 @@
           Adicionar
         </button>
         <button 
-          v-else class="remove"
+          v-else 
+          class="remove"
+          @click="this.$store.dispatch('removeFromBag', product.id)"
         >
           Remover
         </button>
