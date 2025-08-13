@@ -1,17 +1,21 @@
 <template>
   <nav id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/basket">Carrinho de compras (0)</router-link>
+    <router-link to="/basket">Carrinho de compras ({{ productsInBag.length }})</router-link>
   </nav>
   <router-view/>
 </template>
 <script>
 import axios from 'axios';
+import { mapState } from 'vuex';
 
 export default {
   created() {
     this.$store.dispatch('loadProducts');
-  }
+  },
+  computed: mapState([
+    'productsInBag'
+  ])
 }
 </script>
 

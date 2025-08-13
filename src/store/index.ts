@@ -31,7 +31,9 @@ export default createStore<IState>({
       commit('addToBag', product);
     },
     removeFromBag({ commit }, productId) {
-      commit('removeFromBag', productId);
+      if(confirm("Tem certeza que deseja remover este item do carrinho?")) {
+        commit('removeFromBag', productId);
+      }
     }
   },
   modules: {
